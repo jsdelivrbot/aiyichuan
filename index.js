@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = new express();
+const PORT = process.env.PORT || 5000;
 app.use(express.static(__dirname + '/dist'));
 app.get('/',function(req,res){
     res.sendFile('index.html');
@@ -21,7 +22,7 @@ app.get('/api/more.json',function(){
     res.sendFile('api/more.json')
 });
 
-app.listen(3000,function(){
+app.listen(PORT,function(){
     console.log('connected!');
 });
 
